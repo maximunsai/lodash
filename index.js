@@ -56,3 +56,44 @@ const credResults = [
 
   const payment = _.flatten(credResults).filter(record=> !_.isNil(record));
   console.log(payment);
+
+  //....find
+
+const user1 = [
+  { name: 'John', age: 30 },
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 35 }
+];
+const foundUser = _.find(user1, { age: 25 });
+console.log(foundUser); 
+
+//......map
+const names = ['john', 'alice', 'bob'];
+const upperCaseNames = _.map(names, name => name.toUpperCase());
+
+console.log(upperCaseNames); 
+
+
+const numbers = [1, 2, 3];
+const squaredNumbers = _.map(numbers, num => num * num);
+
+console.log(squaredNumbers); 
+
+
+
+
+
+
+const data = {
+  product1: { productoffercode__c: 'offer1', name: 'Product A', price: 100 },
+  product2: { productoffercode__c: 'offer2', name: 'Product B', price: 200 },
+  product3: { productoffercode__c: 'offer1', name: 'Product C', price: 150 },
+  product4: { productoffercode__c: 'offer3', name: 'Product D', price: 180 }
+};
+
+// Mapping over the values of the data object and extracting the productoffercode__c property
+const productOfferCodes = _.uniq(_.map(_.values(data), data => data.productoffercode__c));
+
+const productOffvalue = productOfferCodes.length;
+
+console.log(productOffvalue);
